@@ -1,1 +1,1 @@
-console.log('Hi There');
+import { User } from './classes/User';
