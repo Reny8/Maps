@@ -22794,7 +22794,7 @@ var Company = /** @class */function () {
     };
   }
   Company.prototype.markerContent = function () {
-    return "Company: ".concat(this.name, "\n").concat(this.catchPhrase);
+    return "\n    <div style=\"\n    display: flex;\n    flex-direction: column;\n    align-items: center;\">\n    <h2 style=\"margin: 0;\">Company</h2> \n    <h3 style=\"margin: 0;\"> ".concat(this.name, "</h3>\n    <p style=\"margin: 0;\">").concat(this.catchPhrase, "</p>\n    </div>\n    ");
   };
   return Company;
 }();
@@ -22852,7 +22852,7 @@ var User = /** @class */function () {
     };
   }
   User.prototype.markerContent = function () {
-    return "User: ".concat(this.name);
+    return "\n    <div style=\"\n    display: flex;\n    flex-direction: column;\n    align-items: center;\">\n    <h2 style=\"margin: 0;\">User</h2> \n    <h3 style=\"margin: 0;\">".concat(this.name, "</h3>\n    </div");
   };
   return User;
 }();
