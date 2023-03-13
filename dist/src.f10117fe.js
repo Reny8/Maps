@@ -22796,7 +22796,33 @@ var Company = /** @class */function () {
   return Company;
 }();
 exports.Company = Company;
-},{"@faker-js/faker":"node_modules/@faker-js/faker/dist/esm/index.mjs"}],"src/classes/User.ts":[function(require,module,exports) {
+},{"@faker-js/faker":"node_modules/@faker-js/faker/dist/esm/index.mjs"}],"src/classes/CustomMap.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CustomMap = void 0;
+var CustomMap = /** @class */function () {
+  function CustomMap(divId) {
+    this.googleMap = new google.maps.Map(document.getElementById(divId), {
+      zoom: 1,
+      center: {
+        lat: 0,
+        lng: 0
+      }
+    });
+  }
+  CustomMap.prototype.addMarker = function (location) {
+    new google.maps.Marker({
+      map: this.googleMap,
+      position: location
+    });
+  };
+  return CustomMap;
+}();
+exports.CustomMap = CustomMap;
+},{}],"src/classes/User.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -22823,18 +22849,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 /// <reference types="@types/google.maps" />
 var Company_1 = require("./classes/Company");
+var CustomMap_1 = require("./classes/CustomMap");
 var User_1 = require("./classes/User");
 var user = new User_1.User();
 var company = new Company_1.Company();
-var map = document.getElementById('map');
-new google.maps.Map(map, {
-  zoom: 1,
-  center: {
-    lat: 0,
-    lng: 0
-  }
-});
-},{"./classes/Company":"src/classes/Company.ts","./classes/User":"src/classes/User.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var map = new CustomMap_1.CustomMap('map');
+map.addMarker(user.location);
+map.addMarker(company.location);
+},{"./classes/Company":"src/classes/Company.ts","./classes/CustomMap":"src/classes/CustomMap.ts","./classes/User":"src/classes/User.ts"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
